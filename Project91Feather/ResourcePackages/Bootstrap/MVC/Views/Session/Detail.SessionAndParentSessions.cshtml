@@ -1,0 +1,49 @@
+﻿@model Telerik.Sitefinity.Frontend.Mvc.Models.ContentDetailsViewModel
+
+@using System.Collections;
+@using System.Linq;
+@using Telerik.Sitefinity.Frontend.DynamicContent.WidgetTemplates.Fields.Helpers;
+@using Telerik.Sitefinity;
+@using Telerik.Sitefinity.Data.ContentLinks;
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+@using Telerik.Sitefinity.Libraries.Model;
+@using Telerik.Sitefinity.Localization;
+@using Telerik.Sitefinity.Model;
+@using Telerik.Sitefinity.Model.ContentLinks;
+@using Telerik.Sitefinity.Modules.Pages;
+@using Telerik.Sitefinity.Pages.Model;
+
+@using SitefinityWebApp.Mvc.Helpers;
+@using Telerik.Sitefinity.Frontend.DynamicContent.Mvc.Helpers;
+
+<div class="@Model.CssClass" @Html.InlineEditingAttributes(Model.ProviderName, Model.ContentType.FullName, (Guid)Model.Item.Fields.Id)>
+    <h3 @Html.InlineEditingFieldAttributes("Title", "ShortText")>
+        @Model.Item.Fields.Title
+    </h3>
+
+    @*Start Custom Code*@
+    <h4>Other Sessions you might be interested in:</h4>
+    @{ var sessions = @Model.Item.ParentItem().ChildItems("Sessions"); }
+    @if (sessions != null && sessions.Count() > 0)
+    {
+        <ul>
+            @foreach (var session in sessions)
+            {
+                <li><a href="@Url.ConstructSamePageUrl(session.DataItem)">@session.Fields.Title</a></li>
+            }
+        </ul>
+    }
+    @*End Custom Code*@
+
+    <div>
+        @Model.Item.GetDateTime("PublicationDate", "MMM d, yyyy, HH:mm tt")
+        @Html.CommentsCount("", @Model.Item.DataItem)
+    </div>
+
+    @if (Model.EnableSocialSharing)
+    {
+        @Html.SocialShareOptions()
+    }
+
+    @Html.CommentsList(@Model.Item.DataItem)
+</div>

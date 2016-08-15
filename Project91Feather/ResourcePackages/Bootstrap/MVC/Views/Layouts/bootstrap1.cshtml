@@ -1,0 +1,59 @@
+﻿@using System.Web.Mvc;
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+@using Telerik.Sitefinity.Modules.Pages;
+@using Telerik.Sitefinity.UI.MVC;
+@using Telerik.Sitefinity.Services;
+
+<!DOCTYPE html>
+<html @Html.RenderLangAttribute()>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title></title>
+
+    @Html.Section("head")
+    @Html.StyleSheet(Url.Content("~/ResourcePackages/Bootstrap/assets/dist/css/sitefinity.bootstrap.min.css"), "head")
+</head>
+
+<body>
+    @Html.Section("top")
+
+    <div class="sfPublicWrapper" id="PublicWrapper">
+        @Html.SfPlaceHolder("Contentplaceholder1")
+    </div>
+
+    @Html.Section("my-section")
+    @Html.StyleSheet(Url.Content("~/test.css"), "my-section", true)
+
+    @Html.StyleSheet(Url.Content("~/test.css"), "head", true)
+
+    @Html.Script(Url.Content("~/JavaScript1.js"), "head", true)
+    @Html.Script(Url.Content("~/JavaScript1.js"), "my-section", true)
+
+
+    <div>THIS IS MY CUSTOM LAYOUT BOOTSTRAP 2</div>
+
+
+    @Html.StyleSheet(Url.Content("~/test1.css"), "my-section", false)
+    @Html.StyleSheet("http://test.com/test.css", "my-section2", false)
+@*    @Html.Script(ScriptRef.JQuery, "my-section", true)*@
+
+
+    @Html.Script(Url.EmbeddedResource("SitefinityWebApp.AzureWebRole", "SitefinityWebApp.embeddedjs.js"), "my-section")
+
+    @* Inline editing scripts and helpers. They should be available only when inline editing is possible. *@
+    @if (Html.ShouldRenderInlineEditing())
+    {
+        @Html.Script(ScriptRef.MicrosoftAjax, "top")
+        @Html.Script(ScriptRef.MicrosoftAjaxCore, "top")
+        @Html.Script(ScriptRef.JQuery, "top")
+
+        @Html.Script(Url.EmbeddedResource("Telerik.Sitefinity.Resources.Reference", "Telerik.Sitefinity.Resources.Scripts.jquery.ba-outside-events.min.js"), "top")
+        @Html.Script(ScriptRef.KendoAll, "top")
+        @Html.Script(Url.EmbeddedResource("Telerik.Sitefinity.Resources.Reference", "Telerik.Sitefinity.Resources.Scripts.RequireJS.require.min.js"), "top")
+        @Html.InlineEditingManager(false)
+    }
+
+    @Html.Section("bottom")
+</body>
+</html>

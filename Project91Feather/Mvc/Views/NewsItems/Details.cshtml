@@ -1,0 +1,13 @@
+﻿@model SitefinityWebApp.Mvc.ViewModels.News.DetailsViewModel
+@using SitefinityWebApp.Mvc.Helpers;
+
+<h1>
+    @( Model.Item != null ? Model.Item.Title.ToString() : "No Item Found" )
+
+
+    @{ 
+        bool flag = true; 
+    }
+
+    <div>My flag value is: @flag</div>
+</h1>

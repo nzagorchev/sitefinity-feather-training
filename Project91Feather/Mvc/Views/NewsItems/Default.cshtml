@@ -1,0 +1,25 @@
+@model SitefinityWebApp.Mvc.ViewModels.News.ListViewModel
+@using SitefinityWebApp.Mvc.Helpers;
+
+<h1>News Items
+</h1>
+
+<div>
+    You are on page Url: @ViewBag.PageUrl
+</div>
+
+<div>
+    @foreach (var item in Model.Items)
+    {
+        <div>
+            <h3>@item.Title</h3>
+            <a href="@Url.ConstructSamePageUrl(item)">Go to Details</a>
+            <br />
+            <a href="@Url.Action("MyDetails", new { itemUrl = item.UrlName })">Go to My Details</a>
+            <br />
+            @Html.ActionLink("Go to My Details from ActionLink", "MyDetails",
+        new { itemUrl = item.UrlName },
+        new { @class = "my-css-class" })
+        </div>
+    }
+</div>

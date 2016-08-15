@@ -1,0 +1,13 @@
+﻿@model Telerik.Sitefinity.DynamicModules.Model.DynamicContent
+@using Telerik.Sitefinity.Model;
+@using SitefinityWebApp.Mvc.Helpers;
+
+@{
+    string title = Model != null ? Model.GetValue("Title").ToString() : "No Item Found";
+}
+
+<h1>
+    @title
+</h1>
+
+<a href="@Url.ConstructSamePageUrl(Model)">Details</a>
