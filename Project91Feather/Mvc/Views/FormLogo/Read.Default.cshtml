@@ -1,0 +1,21 @@
+@model SitefinityWebApp.Mvc.Models.Fields.FormLogo.FormLogoViewModel
+
+<style>
+    .logo-container{
+        background-color: #54575a;
+    }
+    .logo {
+        background: url(@Model.ImageUrl) no-repeat 0 0;
+        background-size: 200px 60px !important;
+        width: 200px !important;
+        height: 60px !important;
+        display: inline-block;
+        color: #fff;
+        text-indent: -9999px;
+        margin-left: 10px;
+    }
+</style>
+
+<div class="logo-container">
+    <a href="#"><span class="logo">@Model.AltText</span></a>
+</div>
