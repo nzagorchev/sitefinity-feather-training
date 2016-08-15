@@ -1,0 +1,9 @@
+*.pdb
+*.nupkg
+Project91Feather/App_Data/Sitefinity/Logs/*
+*.lic
+*.user
+*.Cache
+*.suo
+obj/
+Project91Feather/Backup/*
