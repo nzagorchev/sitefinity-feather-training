@@ -952,6 +952,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AzureWebRole.cs" />
+    <Compile Include="Mvc\Controllers\FormLogoController.cs" />
     <Compile Include="Mvc\Helpers\HtmlHelpers.cs" />
     <Compile Include="Mvc\Infrastructure\EventsWidgetViewsEngine.cs" />
     <Compile Include="Mvc\Infrastructure\FeatherActionInvokerCustom.cs" />
@@ -966,6 +967,9 @@
     <Compile Include="Mvc\Controllers\WidgetRoutesController.cs" />
     <Compile Include="Mvc\Helpers\UrlHelpers.cs" />
     <Compile Include="Mvc\Models\EventModelCustom.cs" />
+    <Compile Include="Mvc\Models\Fields\FormLogo\FormLogoModel.cs" />
+    <Compile Include="Mvc\Models\Fields\FormLogo\FormLogoViewModel.cs" />
+    <Compile Include="Mvc\Models\Fields\FormLogo\IFormLogoModel.cs" />
     <Compile Include="Mvc\Models\MyEventsWidgetModel.cs" />
     <Compile Include="Mvc\Models\NavigationModelCustom.cs" />
     <Compile Include="Mvc\Models\NewsItemModel.cs" />
@@ -1365,6 +1369,7 @@
     <Content Include="ResourcePackages\Bootstrap\MVC\Views\Session\Detail.SessionAndParentSessions.cshtml" />
     <Content Include="ResourcePackages\Bootstrap\MVC\Views\Session\List.SessionsAndConferences.cshtml" />
     <Content Include="EventsWidgetViews\Default.ShowMessage.cshtml" />
+    <Content Include="Mvc\Views\FormLogo\Read.Default.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
