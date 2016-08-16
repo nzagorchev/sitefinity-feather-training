@@ -81,13 +81,17 @@ namespace SitefinityWebApp.Mvc.Models.Fields.FormDropdown
 
         public override bool IsValid(object value)
         {
-            // TODO: add validation
-            //string idAsString = value as string;
-            //if (!)
-            //{
-                
-            //}
-
+            string idAsString = value as string;
+            if (!string.IsNullOrEmpty(idAsString))
+            {
+                Guid id = Guid.Parse(idAsString);
+                var item = this.GetDynamicContentItems().Where(i => i.Id == id).FirstOrDefault();
+                if (item == null)
+                {
+                    // The selected item id cannot be found
+                    return false;
+                }
+            }
 
             return true;
         }
