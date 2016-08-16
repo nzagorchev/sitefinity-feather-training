@@ -23,7 +23,7 @@ namespace SitefinityWebApp.Utilities
 
     public static class QueryFiltersDynamicContent
     {
-        public static Func<DynamicContent, bool> liveAndVisibleFilterDynamicContent
+        public static Expression<Func<DynamicContent, bool>> liveAndVisibleFilterDynamicContent
         {
             get
             {

@@ -13,6 +13,9 @@ using Telerik.Sitefinity.Frontend;
 using Telerik.Sitefinity.Frontend.Events.Mvc.Models;
 using SitefinityWebApp.Mvc.Models;
 using Telerik.Sitefinity.Frontend.Navigation.Mvc.Models;
+using Telerik.Sitefinity.Frontend.Forms.Mvc.Models.Fields.TextField;
+using SitefinityWebApp.Mvc.Model.Fields.TextField;
+using Telerik.Sitefinity.Frontend.Forms.Mvc.Models;
 
 namespace SitefinityWebApp
 {
@@ -51,6 +54,12 @@ namespace SitefinityWebApp
 
             // Override Navigation Widget Model
             FrontendModule.Current.DependencyResolver.Rebind<INavigationModel>().To<NavigationModelCustom>();
+
+            // Override Text Field Model
+            FrontendModule.Current.DependencyResolver.Rebind<ITextFieldModel>().To<TextFieldModelCustom>();
+
+            // Override Text Field Model
+            FrontendModule.Current.DependencyResolver.Rebind<IFormModel>().To<FormModelCustom>();
         }
 
         protected void Session_Start(object sender, EventArgs e)

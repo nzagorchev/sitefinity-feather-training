@@ -1,0 +1,20 @@
+@model SitefinityWebApp.Mvc.Models.Fields.FormDropdown.FormDropdownViewModel
+
+@{
+    string selectedKey = Model.Value as string;
+}
+
+<select name="@Model.FieldName">
+    @foreach (var item in Model.Items)
+    {
+        string selected = string.Empty;
+        if (!string.IsNullOrEmpty(selectedKey))
+        {
+            if (selectedKey == item.Key)
+            {
+                selected = "selected='selected'";
+            }
+        }
+        <option value="@item.Key" @selected>@item.Value</option>
+    }
+</select>

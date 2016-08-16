@@ -952,6 +952,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AzureWebRole.cs" />
+    <Compile Include="Mvc\Controllers\FormDropdownController.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Mvc\Controllers\FormLogoController.cs" />
     <Compile Include="Mvc\Helpers\HtmlHelpers.cs" />
     <Compile Include="Mvc\Infrastructure\EventsWidgetViewsEngine.cs" />
@@ -967,9 +970,16 @@
     <Compile Include="Mvc\Controllers\WidgetRoutesController.cs" />
     <Compile Include="Mvc\Helpers\UrlHelpers.cs" />
     <Compile Include="Mvc\Models\EventModelCustom.cs" />
+    <Compile Include="Mvc\Models\Fields\FormDropdown\FormDropdownModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mvc\Models\Fields\FormDropdown\FormDropdownViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Mvc\Models\Fields\FormLogo\FormLogoModel.cs" />
     <Compile Include="Mvc\Models\Fields\FormLogo\FormLogoViewModel.cs" />
     <Compile Include="Mvc\Models\Fields\FormLogo\IFormLogoModel.cs" />
+    <Compile Include="Mvc\Models\FormModelCustom.cs" />
     <Compile Include="Mvc\Models\MyEventsWidgetModel.cs" />
     <Compile Include="Mvc\Models\NavigationModelCustom.cs" />
     <Compile Include="Mvc\Models\NewsItemModel.cs" />
@@ -988,6 +998,7 @@
     <Compile Include="QueryTemplatesForm.aspx.designer.cs">
       <DependentUpon>QueryTemplatesForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mvc\Models\Fields\TextField\TextFieldModelCustom.cs" />
     <Compile Include="Utilities\QueryFilters.cs" />
     <Compile Include="RestoreDefaultTemplatesForm.aspx.cs">
       <DependentUpon>RestoreDefaultTemplatesForm.aspx</DependentUpon>
@@ -1004,6 +1015,8 @@
     <EmbeddedResource Include="embeddedjs.js" />
     <Content Include="Global.asax" />
     <Content Include="JavaScript1.js" />
+    <Content Include="Mvc\Scripts\TextField\text-field.js" />
+    <Content Include="Mvc\Views\FormDropdown\Write.Default.cshtml" />
     <Content Include="QueryTemplatesForm.aspx" />
     <Content Include="ResourcePackages\Bootstrap\assets\dist\css\sitefinity.bootstrap.css" />
     <Content Include="ResourcePackages\Bootstrap\assets\dist\css\sitefinity.bootstrap.min.css" />
@@ -1370,6 +1383,7 @@
     <Content Include="ResourcePackages\Bootstrap\MVC\Views\Session\List.SessionsAndConferences.cshtml" />
     <Content Include="EventsWidgetViews\Default.ShowMessage.cshtml" />
     <Content Include="Mvc\Views\FormLogo\Read.Default.cshtml" />
+    <Content Include="Mvc\Views\TextField\Write.Default.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
