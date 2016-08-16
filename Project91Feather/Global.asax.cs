@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using SitefinityWebApp.Mvc.Infrastructure;
+using SitefinityWebApp.Mvc.Model.Fields.TextField;
+using SitefinityWebApp.Mvc.Models;
+using SitefinityWebApp.Utilities;
+using System;
 using System.Web.Mvc;
-using System.Web.Security;
-using System.Web.SessionState;
-using Telerik.Sitefinity.Abstractions;
-using Telerik.Sitefinity.Mvc;
 using Telerik.Microsoft.Practices.Unity;
-using SitefinityWebApp.Mvc.Infrastructure;
+using Telerik.Sitefinity.Abstractions;
 using Telerik.Sitefinity.Frontend;
 using Telerik.Sitefinity.Frontend.Events.Mvc.Models;
-using SitefinityWebApp.Mvc.Models;
-using Telerik.Sitefinity.Frontend.Navigation.Mvc.Models;
-using Telerik.Sitefinity.Frontend.Forms.Mvc.Models.Fields.TextField;
-using SitefinityWebApp.Mvc.Model.Fields.TextField;
 using Telerik.Sitefinity.Frontend.Forms.Mvc.Models;
+using Telerik.Sitefinity.Frontend.Forms.Mvc.Models.Fields.TextField;
+using Telerik.Sitefinity.Frontend.Navigation.Mvc.Models;
+using Telerik.Sitefinity.Modules.Forms.Events;
+using Telerik.Sitefinity.Mvc;
+using Telerik.Sitefinity.Services;
 
 namespace SitefinityWebApp
 {
@@ -39,6 +37,9 @@ namespace SitefinityWebApp
                  "Classic",
                  "classic-mvc/{controller}/{action}/{id}",
                  new { controller = "Feature", action = "Index", id = (string)null }); // or id = UrlParameter.Optional
+
+                // Form Saving Event
+                EventHub.Subscribe<FormSavingEvent>(FormEventHandlers.FormSavingEvent);
             }
         }
 

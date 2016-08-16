@@ -82,6 +82,13 @@ namespace SitefinityWebApp.Mvc.Models.Fields.FormDropdown
         public override bool IsValid(object value)
         {
             // TODO: add validation
+            //string idAsString = value as string;
+            //if (!)
+            //{
+                
+            //}
+
+
             return true;
         }
 

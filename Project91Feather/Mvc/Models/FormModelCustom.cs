@@ -1,36 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Web;
+using System.Web.Mvc;
 using System.Linq;
-using System.Web;
+using Telerik.Sitefinity.Forms.Model;
 using Telerik.Sitefinity.Frontend.Forms.Mvc.Models;
+using Telerik.Sitefinity.Modules.Forms;
 
 namespace SitefinityWebApp.Mvc.Models
 {
     public class FormModelCustom : FormModel
     {
-        public override SubmitStatus TrySubmitForm(System.Web.Mvc.FormCollection collection, HttpFileCollectionBase files, string userHostAddress)
+        public override SubmitStatus TrySubmitForm(FormCollection collection, HttpFileCollectionBase files, string userHostAddress)
         {
             return base.TrySubmitForm(collection, files, userHostAddress);
         }
 
         public override string GetSubmitMessage(SubmitStatus submitedSuccessfully)
         {
+            string formTitle = this.FormData.Title;
+            if (formTitle == "form1")
+            {
+                if (submitedSuccessfully == SubmitStatus.Success)
+                {
+                    // TODO: Use Resource label
+                    return "Thank you for submitting your feedback.";
+                }
+            }
+
             return base.GetSubmitMessage(submitedSuccessfully);
         }
 
-        protected override bool IsValidForm(Telerik.Sitefinity.Forms.Model.FormDescription form, System.Web.Mvc.FormCollection collection, HttpFileCollectionBase files, Telerik.Sitefinity.Modules.Forms.FormsManager manager)
+        protected override bool IsValidForm(FormDescription form, FormCollection collection, HttpFileCollectionBase files, FormsManager manager)
         {
+            // Validate files
+            // Validate form field inputs
+
+            if (form.Title == "form1")
+            {
+                // Use the FieldName if there are more controls of that type
+                // Can be found in Designer -> Advanced -> Model -> MetaField -> FieldName
+                string formDropdownFieldName = "FormDropdownController";
+                // Get the first control with the name from the collection
+                var key = collection.AllKeys.Where(f => f.StartsWith(formDropdownFieldName)).FirstOrDefault();
+                if (!string.IsNullOrEmpty(key))
+                {
+                    string dropdownValue = collection[key];
+                }
+            }
+
             return base.IsValidForm(form, collection, files, manager);
         }
 
-        protected override bool ValidateFormSubmissionRestrictions(Telerik.Sitefinity.Modules.Forms.FormsSubmitionHelper formsSubmition, Telerik.Sitefinity.Modules.Forms.FormEntryDTO formEntry)
+        protected override bool ValidateFormSubmissionRestrictions(FormsSubmitionHelper formsSubmition, FormEntryDTO formEntry)
         {
             // IP, Username or No Restiction by default
             return base.ValidateFormSubmissionRestrictions(formsSubmition, formEntry);
         }
 
-        protected override bool RaiseFormSavingEvent(Telerik.Sitefinity.Modules.Forms.FormEntryDTO formEntry)
+        protected override bool RaiseFormSavingEvent(FormEntryDTO formEntry)
         {
+            var formsData = formEntry.PostedData.FormsData;
+            var files = formEntry.PostedData.Files;
+
             return base.RaiseFormSavingEvent(formEntry);
         }
     }

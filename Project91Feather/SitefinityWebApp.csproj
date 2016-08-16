@@ -999,6 +999,7 @@
       <DependentUpon>QueryTemplatesForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mvc\Models\Fields\TextField\TextFieldModelCustom.cs" />
+    <Compile Include="Utilities\FormEventHandlers.cs" />
     <Compile Include="Utilities\QueryFilters.cs" />
     <Compile Include="RestoreDefaultTemplatesForm.aspx.cs">
       <DependentUpon>RestoreDefaultTemplatesForm.aspx</DependentUpon>
