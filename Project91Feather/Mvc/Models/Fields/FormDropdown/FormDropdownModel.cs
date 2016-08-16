@@ -51,6 +51,8 @@ namespace SitefinityWebApp.Mvc.Models.Fields.FormDropdown
             viewModel.Value = value;
             viewModel.Items = this.GetDropdownItems();
             viewModel.FieldName = this.MetaField.FieldName;
+            viewModel.ValidationAttributes = "required='required'";
+            viewModel.FieldTitle = this.MetaField.Title != null ? this.MetaField.Title : "Dropdown";
 
             return viewModel;
         }

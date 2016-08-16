@@ -7,5 +7,9 @@ namespace SitefinityWebApp.Mvc.Models.Fields.FormDropdown
         public System.Collections.Generic.Dictionary<string, string> Items { get; set; }
 
         public string FieldName { get; set; }
+
+        public string ValidationAttributes { get; set; }
+
+        public string FieldTitle { get; set; }
     }
 }

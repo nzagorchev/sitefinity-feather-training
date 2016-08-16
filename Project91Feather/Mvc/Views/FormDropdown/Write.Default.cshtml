@@ -1,10 +1,16 @@
 @model SitefinityWebApp.Mvc.Models.Fields.FormDropdown.FormDropdownViewModel
 
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+
 @{
     string selectedKey = Model.Value as string;
 }
 
-<select name="@Model.FieldName">
+<label for='@Html.UniqueId("FormDropdown")'>
+    @Model.FieldTitle
+</label>
+<select id='@Html.UniqueId("FormDropdown")' name="@Model.FieldName" @Model.ValidationAttributes >
+    <option>Select value</option>
     @foreach (var item in Model.Items)
     {
         string selected = string.Empty;
