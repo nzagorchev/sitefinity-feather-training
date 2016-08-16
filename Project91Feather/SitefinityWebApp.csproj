@@ -1021,6 +1021,7 @@
     <Content Include="Global.asax" />
     <Content Include="JavaScript1.js" />
     <Content Include="Mvc\Scripts\TextField\text-field.js" />
+    <Content Include="Mvc\Scripts\WidgetWithDesigner\designerview-simple.js" />
     <Content Include="Mvc\Views\FormDropdown\Write.Default.cshtml" />
     <Content Include="QueryTemplatesForm.aspx" />
     <Content Include="ResourcePackages\Bootstrap\assets\dist\css\sitefinity.bootstrap.css" />
@@ -1392,6 +1393,8 @@
     <Content Include="ResourcePackages\Bootstrap\MVC\Views\FormDropdown\Write.Default.cshtml" />
     <Content Include="Mvc\Views\Form\MyIndex.cshtml" />
     <Content Include="Mvc\Views\WidgetWithDesigner\Default.cshtml" />
+    <Content Include="Mvc\Views\WidgetWithDesigner\DesignerView.Simple.cshtml" />
+    <Content Include="Mvc\Views\WidgetWithDesigner\DesignerView.Simple.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

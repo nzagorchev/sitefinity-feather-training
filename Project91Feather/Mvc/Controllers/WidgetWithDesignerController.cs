@@ -10,11 +10,11 @@ namespace SitefinityWebApp.Mvc.Controllers
     [ControllerToolboxItem(Name = "WidgetWithDesigner", Title = "WidgetWithDesigner", SectionName = "MvcWidgets")]
     public class WidgetWithDesignerController : Controller
     {
-        /// <summary>
-        /// Gets or sets the message.
-        /// </summary>
         [Category("String Properties")]
         public string Header { get; set; }
+
+        [Category("String Properties")]
+        public string Header1 { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public IWidgetWithDesignerModel Model
