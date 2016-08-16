@@ -969,6 +969,7 @@
     <Compile Include="Mvc\Controllers\WidgetResultsController.cs" />
     <Compile Include="Mvc\Controllers\WidgetRoutesController.cs" />
     <Compile Include="Mvc\Helpers\UrlHelpers.cs" />
+    <Compile Include="Mvc\Infrastructure\FormRazorRendererCustom.cs" />
     <Compile Include="Mvc\Models\EventModelCustom.cs" />
     <Compile Include="Mvc\Models\Fields\FormDropdown\FormDropdownModel.cs">
       <SubType>Code</SubType>
@@ -1386,6 +1387,7 @@
     <Content Include="Mvc\Views\FormLogo\Read.Default.cshtml" />
     <Content Include="Mvc\Views\TextField\Write.Default.cshtml" />
     <Content Include="ResourcePackages\Bootstrap\MVC\Views\FormDropdown\Write.Default.cshtml" />
+    <Content Include="Mvc\Views\Form\MyIndex.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

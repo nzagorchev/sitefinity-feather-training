@@ -8,6 +8,7 @@ using Telerik.Microsoft.Practices.Unity;
 using Telerik.Sitefinity.Abstractions;
 using Telerik.Sitefinity.Frontend;
 using Telerik.Sitefinity.Frontend.Events.Mvc.Models;
+using Telerik.Sitefinity.Frontend.Forms;
 using Telerik.Sitefinity.Frontend.Forms.Mvc.Models;
 using Telerik.Sitefinity.Frontend.Forms.Mvc.Models.Fields.TextField;
 using Telerik.Sitefinity.Frontend.Navigation.Mvc.Models;
@@ -61,6 +62,9 @@ namespace SitefinityWebApp
 
             // Override Text Field Model
             FrontendModule.Current.DependencyResolver.Rebind<IFormModel>().To<FormModelCustom>();
+
+            // Override Form Razor Renderer
+            FrontendModule.Current.DependencyResolver.Rebind<IFormRenderer>().To<FormRazorRendererCustom>();
         }
 
         protected void Session_Start(object sender, EventArgs e)
